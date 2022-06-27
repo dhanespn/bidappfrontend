@@ -1,0 +1,15 @@
+<div class="form-group row">
+  <label for="bidAmount" class="col-sm-2 col-form-label">Bid Amount: </label>
+  <div class="col-sm-2">
+    <input [(ngModel)]="bidAmount" />
+  </div>
+  <label for="bidAmount" class="col-sm-2 col-form-label">Email: </label>
+  <div class="col-sm-2">
+    <input [(ngModel)]="email" />
+  </div>
+  <div class="col-sm-2">
+    <button type="button" class="btn btn-success" (click)="onBidPlace()">
+      Place Bid
+    </button>
+  </div>
+</div>

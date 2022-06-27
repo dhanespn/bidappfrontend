@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Bid Amount</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let bid of bids">
+    <tr>
+      <td>{{ bid.bidAmout }}</td>
+      <td>{{ bid.buyerId }}</td>
+      <td>{{ bid.email }}</td>
+      <td>{{ bid.phoneNumber }}do</td>
+    </tr>
+  </tbody>
+</table>

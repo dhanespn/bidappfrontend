@@ -1,0 +1,94 @@
+<div *ngIf="product">
+  <h2>Product Details</h2>
+  <div><span>id: </span>{{ product.id }}</div>
+  <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+    <div class="form-group row">
+      <label for="product-name" class="col-sm-6 col-form-label"
+        >Product name:
+      </label>
+      <div class="col-sm-6">
+        <input
+          [(ngModel)]="product.productName"
+          placeholder="product name"
+          name="product-name"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product-description" class="col-sm-6 col-form-label"
+        >Product Description
+      </label>
+      <div class="col-sm-6">
+        <input [(ngModel)]="product.detailedDescription" name="description" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product-description" class="col-sm-6 col-form-label"
+        >Product Catagory
+      </label>
+      <div class="col-sm-3">
+        <select
+          name="contactMethod"
+          id="contactMethod"
+          class="form-control"
+          [(ngModel)]="product.category"
+        >
+          <option *ngFor="let cat of productCatogories" [value]="cat">
+            {{ cat }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product-description" class="col-sm-6 col-form-label"
+        >Starting Price
+      </label>
+      <div class="col-sm-6">
+        <input [(ngModel)]="product.startingPrice" name="starting-price" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="product-description" class="col-sm-6 col-form-label"
+        >Bid End Date
+      </label>
+      <div class="col-sm-6">
+        <!-- <input
+          [(ngModel)]="product.bidEndDate"
+          name="product-bidenddate"
+          type="date"
+          ngbDatepicker
+          #d="ngbDatepicker"
+        /> -->
+      </div>
+      <div>
+        <!--*ngIf="!sellerUser">-->
+        <app-bid-list [bids]="product.bidDetails"></app-bid-list>
+      </div>
+      <div>
+        <!-- *ngif="!sellerUser">-->
+        <app-placebid [product]="product"></app-placebid>
+      </div>
+    </div>
+    <div class="form-group row">
+      <!--*ngIf="sellerUser">-->
+      <div class="col-sm-1">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!productForm.form.valid"
+        >
+          Submit
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="newProduct(); productForm.reset()"
+        >
+          New Product
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

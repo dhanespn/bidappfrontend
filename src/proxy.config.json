@@ -1,0 +1,15 @@
+
+{
+    "/api": {
+      "target": "http://127.0.0.1:8081/e-auction/api/v1/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/api" : ""}
+    },
+    "/authenticate": {
+      "target": "http://127.0.0.1:8081/authenticate",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {"^/authenticate" : ""}
+    }
+  }

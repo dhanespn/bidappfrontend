@@ -1,0 +1,33 @@
+<h2 class="text-center">My Products</h2>
+
+<div class="form-group row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let product of products">
+      <tr>
+        <th scope="row">{{ product.id }}</th>
+        <th>
+          <a
+            role="button"
+            [class.selected]="product === selectedProduct"
+            (click)="onSelect(product)"
+            class="link-primary"
+          >
+            {{ product.productName }}</a
+          >
+        </th>
+        <th>{{ product.category }}</th>
+        <th>{{ product.shortDescription }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--<app-product-details [product]="selectedProduct"></app-product-details>-->
